@@ -289,7 +289,7 @@
             <div class="contact_form ">
               <!--Formulario-->
               <form action="<?= base_url('home/registrar'); ?>" method="POST" enctype="multipart/form-data">
-
+              <?= csrf_field();?>
               <?php if (session()->getFlashdata('success')): ?>
                 <div class="alert alert-success">
                   <?= session()->getFlashdata('success') ?>
