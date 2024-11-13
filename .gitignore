@@ -1,0 +1,6 @@
+/application/cache/
+/application/logs/
+/application/uploads/
+/application/config/  
+/data/
+/writable/
