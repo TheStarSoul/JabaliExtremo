@@ -10,8 +10,7 @@ class Home extends BaseController
         //Retorno de vistas
         return view('layouts/formulario_layouts/header')
             .view('layouts/formulario_layouts/welcome_message', [
-                'errors' => session()->getFlashdata('errors'),
-                'success' => session()->getFlashdata('success')
+                'errors' => session()->getFlashdata('errors')
                 ])
            .view('layouts/formulario_layouts/footer');
     } 
@@ -56,6 +55,7 @@ class Home extends BaseController
             //$file = $this->request->getFile('archivo');
 
             if($pilotoModel->addUsuario($data)){
+                session()->setFlashdata('success', 'Inscripción exitosa.');
                 return redirect()->to('tabla/vista');
             }
         }

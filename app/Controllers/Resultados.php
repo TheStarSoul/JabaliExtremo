@@ -7,9 +7,13 @@
     class Resultados extends BaseController{
         public function index(){
             $data = $this->mostrar();
+            $success = session()->getFlashdata('success');
 
             return view('layouts/tabla_layouts/headTabla')
-                .view('layouts/tabla_layouts/resultadosTabla', ['data' => $data]);
+                .view('layouts/tabla_layouts/resultadosTabla', [
+                    'data' => $data,
+                    'success' => $success
+                ]);
         }
 
         public function mostrar(){

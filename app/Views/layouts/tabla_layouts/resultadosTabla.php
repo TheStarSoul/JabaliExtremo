@@ -1,7 +1,13 @@
         <div class="container my-5">
         <h2 class="text-center mb-4">Tabla</h2>
+            <?php if (!empty($success)): ?>
+                <div class="alert alert-success">
+                    <?= esc($success); ?>
+                </div>
+            <?php endif; ?>
         <!-- Tabla básica con clases de Bootstrap -->
             <div class="table-responsive">
+            
                 <table class="table table-striped table-bordered">
                     <thead class="table-dark">
                         <tr>
