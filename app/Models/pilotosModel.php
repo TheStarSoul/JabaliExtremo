@@ -47,44 +47,44 @@
 
         protected $validationMessages = [
             'name_driver' => [
-                'required' => 'El nombre de usuario es obligatorio',
+                'required' => 'Este campo es necesario para continuar',
                 'min_length' => 'El minimo de caracteres es de 6 letras',
                 'max_length' => 'El maximo de caracteres es de 30 letras',
-                'regex_match' => 'El nombre no puede contener números o caracteres especiales'
+                'regex_match' => 'Solo se pueden ingresar letras, no se pueden ingresar caracteres especiales'
             ],
             'lastname_driver' => [
-                'required' => 'El correo es obligatorio',
+                'required' => 'Este campo es necesario para continuar',
                 'min_length' => 'El minimo de caracteres es de 6 letras',
                 'max_length' => 'El maximo de caracteres es de 30 letras',
-                'regex_match' => 'El nombre no puede contener números o caracteres especiales'
+                'regex_match' => 'Solo se pueden ingresar letras, no se pueden ingresar caracteres especiales'
             ],
             'dni_driver' => [
-                'required' => 'El contraseña es obligatoria'
+                'required' => 'Este campo es necesario para continuar'
             ],
             'fono_driver' => [
-                'required' => 'El contraseña es obligatoria'
+                'required' => 'Este campo es necesario para continuar'
             ],
             'number_driver' => [
-                'required' => 'El contraseña es obligatoria'
+                'required' => 'Este campo es necesario para continuar'
             ],
             'email_driver' => [
-                'required' => 'El contraseña es obligatoria'
+                'required' => 'Este campo es necesario para continuar'
             ],
             'nameContact_emergency' => [
-                'required' => 'El nombre de usuario es obligatorio',
+                'required' => 'Este campo es necesario para continuar',
                 'min_length' => 'El minimo de caracteres es de 6 letras',
                 'max_length' => 'El maximo de caracteres es de 30 letras',
-                'regex_match' => 'El nombre no puede contener números o caracteres especiales'
+                'regex_match' => 'Solo se pueden ingresar letras, no se pueden ingresar caracteres especiales'
             ],
             'fonoContact_emergency' => [
-                'required' => 'El contraseña es obligatoria'
+                'required' => 'Este campo es necesario para continuar'
             ],
             'categoria_driver' => [
-                'required' => 'El contraseña es obligatoria'
+                'required' => 'Este campo es necesario para continuar'
             ],
             'country_driver' => [
-                'required' => 'El nombre de usuario es obligatorio',
-                'regex_match' => 'El nombre no puede contener números o caracteres especiales'
+                'required' => 'Este campo es necesario para continuar',
+                'regex_match' => 'Solo se pueden ingresar letras, no se pueden ingresar caracteres especiales'
             ]
         ];
 
