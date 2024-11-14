@@ -8,12 +8,12 @@ class Home extends BaseController
     public function index(): string
     {
         //Retorno de vistas
-        return view('layouts/header')
-            .view('welcome_message', [
+        return view('layouts/formulario_layouts/header')
+            .view('layouts/formulario_layouts/welcome_message', [
                 'errors' => session()->getFlashdata('errors'),
                 'success' => session()->getFlashdata('success')
                 ])
-           .view('layouts/footer');
+           .view('layouts/formulario_layouts/footer');
     } 
 
     public function registrar(){
@@ -56,25 +56,8 @@ class Home extends BaseController
             //$file = $this->request->getFile('archivo');
 
             if($pilotoModel->addUsuario($data)){
-                return redirect()->to(site_url('home/mostrar'));
-            }else{
-                $error = $pilotoModel->errors();
-                echo var_dump($error);
+                return redirect()->to('tabla/vista');
             }
-        }
-    }
-
-    public function mostrar(){
-        $pilotoModel = new pilotosModel;
-        //Obtengo el ultimo registro de la base de datos teniendo en cuenta que el id es autoincremental
-        $data['piloto'] = $pilotoModel->orderBy('id_driver', 'DESC')->first();
-
-        // Validación por si no hay ningún piloto registrado
-        if (!$data['piloto']) {
-            return redirect()->to('/')->with('error', 'No se encontró el piloto registrado.');
-        } else {
-            // Si se encuentra un piloto, retornamos la vista con los datos
-            return view('resultados_message', $data);
         }
     }
 }
