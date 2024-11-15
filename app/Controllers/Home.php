@@ -80,7 +80,8 @@ class Home extends BaseController
                     
                     $emailService->setSubject('Confirmacion de registro JabaliExtremo');
                     $emailService->setMessage($cuerpo);
-                    $emailService->attach('./public/jabali/'.$file , 'attachment','comprobante.pdf');
+                    $emailService->attach(FCPATH . 'jabali/' . $fileName, 'attachment', $fileName);
+
                    // $email->setAltMessage('Mensaje para avisar sobre el registro');
                     
                     if ($emailService->send())

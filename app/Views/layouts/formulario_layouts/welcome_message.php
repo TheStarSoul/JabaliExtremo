@@ -299,7 +299,7 @@
               <!--Input de los nombres-->
                 <div class="mb-3">
                   <label for="InputNames" class="form-label">Nombres</label>
-                  <input type="text" class="form-control" id="InputNames" name="name_driver" aria-describedby="nameHelp" placeholder="Debe ingresar sus nombres." value="<?= old('name_driver')?>">
+                  <input type="text" class="form-control" id="InputNames" name="name_driver" aria-describedby="nameHelp" placeholder="Ingresa tu(s) nombre(s)." value="<?= old('name_driver')?>">
                 </div>
                 <br>
 
@@ -312,7 +312,7 @@
               <!--Input de los apellidos-->
                 <div class="mb-3">
                   <label for="InputLastNames" class="form-label">Apellidos</label>
-                  <input type="text" class="form-control" id="InputLastNames" name="lastname_driver" aria-describedby="lastNameHelp" placeholder="Debe ingresar sus apellidos." value="<?= old('lastname_driver')?>">
+                  <input type="text" class="form-control" id="InputLastNames" name="lastname_driver" aria-describedby="lastNameHelp" placeholder="Ingresa tu(s) apellido(s)." value="<?= old('lastname_driver')?>">
                 </div>
                 <br>
 
@@ -325,7 +325,7 @@
               <!--Input del DNI/RUT-->
                 <div class="mb-3">
                   <label for="InputDNI" class="form-label">DNI / RUT</label>
-                  <input type="number" class="form-control" id="InputDNI" name="dni_driver" aria-describedby="dniHelp" placeholder="Debes ingresar tu DNI o RUT." value="<?= old('dni_driver')?>">
+                  <input type="number" class="form-control" id="InputDNI" name="dni_driver" aria-describedby="dniHelp" placeholder="Ingresa tu DNI o RUT." value="<?= old('dni_driver')?>">
                 </div>
                 <br>
 
@@ -358,7 +358,7 @@
               <!--Input del numero de competidor-->
                 <div class="mb-3">
                   <label for="InputNumber" class="form-label">Numero Piloto</label>
-                  <input type="number" class="form-control" id="InputNumber" name="number_driver" aria-describedby="numberHelp" placeholder="Debes ingresar el número de competicion." value="<?= old('number_driver')?>">
+                  <input type="number" class="form-control" id="InputNumber" name="number_driver" aria-describedby="numberHelp" placeholder="Ingresa el número de competicion." value="<?= old('number_driver')?>">
                 </div>
                 <br>
 
