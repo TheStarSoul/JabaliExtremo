@@ -20,6 +20,7 @@
                             <th>Correo</th>
                             <th>Categoria</th>
                             <th>Ciudad</th>
+                            <th>Archivo (Ubicación)</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -33,6 +34,14 @@
                             <td><?= esc($data['piloto']['email_driver'])?></td>
                             <td><?= esc($data['piloto']['categoria_driver'])?></td>
                             <td><?= esc($data['piloto']['country_driver'])?></td>
+                            <td>
+                                <?php if (!empty($data['piloto']['archivo_driver'])): ?>
+                                    <!-- Enlace de descarga -->
+                                    <a href="<?= base_url('jabali/' . esc($data['piloto']['archivo_driver'])) ?>" download><?= esc($data['piloto']['archivo_driver'])?></a>
+                                <?php else: ?>
+                                    <p>No hay archivo disponible</p>
+                                <?php endif; ?>
+                            </td>
                         </tr>
                     </tbody>
                 </table>

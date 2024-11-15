@@ -436,9 +436,16 @@
               <!--Subida de archivos-->
                 <div class="mb-3">
                   <label for="sendFile" class="form-label">Boleta</label>
-                  <input type="file" class="form-control" id="sendFile" name="archivo" aria-describedby="sendFileHelp" accept="image/jpeg, image/png, application/pdf">
+                  <input type="file" class="form-control" id="sendFile" name="archivo_driver" aria-describedby="sendFileHelp" accept="image/jpeg, image/png, application/pdf">
                   <div id="sendFileHelp" class="form-text">Ingrese el documento descargado. (*.jpeg *.png *.pdf)</div>
                 </div>
+
+                <?php if (isset($errors['archivo_driver'])): ?>
+                  <div class="alert alert-danger">
+                    <?= esc($errors['archivo_driver']) ?>
+                  </div>
+                <?php endif; ?>
+
                 <br>
               <!--Botón de envio-->
                 <button>

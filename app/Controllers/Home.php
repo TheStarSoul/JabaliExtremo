@@ -38,25 +38,62 @@ class Home extends BaseController
             $fonoContact = $this->request->getPost('fonoContact_emergency');
             $category = $this->request->getPost('categoria_driver');
             $country = $this->request->getPost('country_driver');
+            $file = $this->request->getFile('archivo_driver');
 
-            $data = [
-                'name_driver' => $name,
-                'lastname_driver' => $lastname,
-                'dni_driver' => $dni,
-                'fono_driver' => $fono,
-                'number_driver' => $number,
-                'email_driver' => $email,
-                'nameContact_emergency' => $nameContact,
-                'fonoContact_emergency' => $fonoContact,
-                'categoria_driver' => $category,
-                'country_driver' => $country
-            ];
+            if ($file) {
+                // Obtener el nombre original del archivo
+                $fileName = $file->getName();  // Usa el nombre original del archivo, sin codificarlo.
+                $filePath = $fileName;  // El nombre del archivo sin prefijo
 
-            //$file = $this->request->getFile('archivo');
 
-            if($pilotoModel->addUsuario($data)){
-                session()->setFlashdata('success', 'Inscripción exitosa.');
-                return redirect()->to('tabla/vista');
+                // Guardar la ruta del archivo en la base de datos
+                // 'jabali/nombre_del_archivo.ext'
+
+                $data = [
+                    'name_driver' => $name,
+                    'lastname_driver' => $lastname,
+                    'dni_driver' => $dni,
+                    'fono_driver' => $fono,
+                    'number_driver' => $number,
+                    'email_driver' => $email,
+                    'nameContact_emergency' => $nameContact,
+                    'fonoContact_emergency' => $fonoContact,
+                    'categoria_driver' => $category,
+                    'country_driver' => $country,
+                    'archivo_driver' => $filePath
+                ];
+                
+                if($pilotoModel->addUsuario($data)){
+                    $file->move(FCPATH . 'jabali/', $fileName);
+
+                    session()->setFlashdata('success', 'Inscripción exitosa.');
+
+                    /*
+                    $cuerpo='<h4> Hola </h4>';
+                    $cuerpo.='<p> Mensaje para avisar que se registro correctamente </p>';
+                    $cuerpo.='<a href="https://www.jabaliextremo.cl"> WEB  </a>';
+                    $email = service('email');
+            
+                    $email->setFrom('info@jabaliextremo.cl', 'Jabaliextremo Info');
+                    $email->setTo($email);
+                    $email->setCC('tesorero.jabalies@gmail.com');
+                    $email->setBCC('info@jabaliextremo.cl');
+                    
+                    $email->setSubject('Confirmacion de registro JabaliExtremo');
+                    $email->setMessage($cuerpo);
+                    $email->attach('./public/jabali/'.$nombrearchivo , 'attachment','comprobante.pdf');
+                   // $email->setAltMessage('Mensaje para avisar sobre el registro');
+                    
+                    if ($email->send())
+                    {
+                        echo "CORREO ENVIADO";
+                        $email->printDebugger(['headers']);
+                    }else{
+                        echo "no se ha enviado el correo";
+                    }*/
+        
+                    return redirect()->to(base_url('tabla/vista'));
+                }
             }
         }
     }

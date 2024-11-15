@@ -25,7 +25,8 @@
             'nameContact_emergency',
             'fonoContact_emergency',
             'categoria_driver',
-            'country_driver'
+            'country_driver',
+            'archivo_driver'
         ];
 
         //------------------------------------------------------------------------------------
@@ -42,7 +43,8 @@
             'nameContact_emergency' => 'required|min_length[6]|max_length[30]|regex_match[/^[a-zA-Z ]+$/]',
             'fonoContact_emergency' => 'required',
             'categoria_driver' => 'required',
-            'country_driver' => 'required|regex_match[/^[a-zA-Z ]+$/]'
+            'country_driver' => 'required|regex_match[/^[a-zA-Z ]+$/]',
+            'archivo_driver' => 'uploaded[archivo_driver]|max_size[archivo_driver,1024]|ext_in[archivo_driver,jpg,jpeg,png,pdf]'
         ];
 
         protected $validationMessages = [
@@ -85,6 +87,10 @@
             'country_driver' => [
                 'required' => 'Este campo es necesario para continuar',
                 'regex_match' => 'Solo se pueden ingresar letras, no se pueden ingresar caracteres especiales'
+            ],
+            'archivo_driver' => [
+                'uploaded[archivo_driver]' => 'La subida del archivo es necesaria para continuar',
+                'ext_in[archivo_driver,jpg,jpeg,png,pdf]' => 'La extension del archivo no esta permitida'
             ]
         ];
 
