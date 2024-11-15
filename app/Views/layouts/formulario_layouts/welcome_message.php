@@ -65,9 +65,6 @@
                       </p>
                       <div class="btn-box">
                         <a href="#inscripcion" class="btn-1">
-            
-
-
                           Inscripcion
                         </a>
                       </div>

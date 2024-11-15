@@ -64,7 +64,7 @@ class Home extends BaseController
                 ];
                 
                 if($pilotoModel->addUsuario($data)){
-                    $file->move(FCPATH . 'jabali/', $fileName);
+                    $file->move(FCPATH . '/public/jabali/', $fileName);
 
                     session()->setFlashdata('success', 'Inscripción exitosa.');
 
