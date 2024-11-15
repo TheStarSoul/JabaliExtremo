@@ -437,7 +437,7 @@
                 <div class="mb-3">
                   <label for="sendFile" class="form-label">Boleta</label>
                   <input type="file" class="form-control" id="sendFile" name="archivo_driver" aria-describedby="sendFileHelp" accept="image/jpeg, image/png, application/pdf">
-                  <div id="sendFileHelp" class="form-text">Ingrese el documento descargado. (*.jpeg *.png *.pdf)</div>
+                  <div id="sendFileHelp" class="form-text">Ingrese el documento descargado. (*.jpg *.png *.pdf)</div>
                 </div>
 
                 <?php if (isset($errors['archivo_driver'])): ?>
