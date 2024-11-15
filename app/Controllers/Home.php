@@ -33,7 +33,7 @@ class Home extends BaseController
             $dni = $this->request->getPost('dni_driver');
             $fono = $this->request->getPost('fono_driver');
             $number = $this->request->getPost('number_driver');
-            $email = $this->request->getPost('email_driver');
+            $userEmail = $this->request->getPost('email_driver');
             $nameContact = $this->request->getPost('nameContact_emergency');
             $fonoContact = $this->request->getPost('fonoContact_emergency');
             $category = $this->request->getPost('categoria_driver');
@@ -55,7 +55,7 @@ class Home extends BaseController
                     'dni_driver' => $dni,
                     'fono_driver' => $fono,
                     'number_driver' => $number,
-                    'email_driver' => $email,
+                    'email_driver' => $userEmail,
                     'nameContact_emergency' => $nameContact,
                     'fonoContact_emergency' => $fonoContact,
                     'categoria_driver' => $category,
@@ -68,29 +68,28 @@ class Home extends BaseController
 
                     session()->setFlashdata('success', 'Inscripción exitosa.');
 
-                    /*
                     $cuerpo='<h4> Hola </h4>';
                     $cuerpo.='<p> Mensaje para avisar que se registro correctamente </p>';
                     $cuerpo.='<a href="https://www.jabaliextremo.cl"> WEB  </a>';
-                    $email = service('email');
+                    $emailService = service('email');
             
-                    $email->setFrom('info@jabaliextremo.cl', 'Jabaliextremo Info');
-                    $email->setTo($email);
-                    $email->setCC('tesorero.jabalies@gmail.com');
-                    $email->setBCC('info@jabaliextremo.cl');
+                    $emailService->setFrom('info@jabaliextremo.cl', 'Jabaliextremo Info');
+                    $emailService->setTo($userEmail);
+                    $emailService->setCC('tesorero.jabalies@gmail.com');
+                    $emailService->setBCC('info@jabaliextremo.cl');
                     
-                    $email->setSubject('Confirmacion de registro JabaliExtremo');
-                    $email->setMessage($cuerpo);
-                    $email->attach('./public/jabali/'.$nombrearchivo , 'attachment','comprobante.pdf');
+                    $emailService->setSubject('Confirmacion de registro JabaliExtremo');
+                    $emailService->setMessage($cuerpo);
+                    $emailService->attach('./public/jabali/'.$file , 'attachment','comprobante.pdf');
                    // $email->setAltMessage('Mensaje para avisar sobre el registro');
                     
-                    if ($email->send())
+                    if ($emailService->send())
                     {
                         echo "CORREO ENVIADO";
-                        $email->printDebugger(['headers']);
+                        $emailService->printDebugger(['headers']);
                     }else{
                         echo "no se ha enviado el correo";
-                    }*/
+                    }
         
                     return redirect()->to(base_url('tabla/vista'));
                 }
